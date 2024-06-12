@@ -7,7 +7,8 @@ import os
 # Setzen Sie Ihren OpenAI-API-Schlüssel hier
 # load_dotenv()
 # client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-client=st.secrets["OPENAI_API_KEY"]
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+
 
 #################### Globale Variablen  ####################
 def initialize_session_state():
