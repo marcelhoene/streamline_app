@@ -5,8 +5,9 @@ from dotenv import load_dotenv
 import os
 
 # Setzen Sie Ihren OpenAI-API-Schlüssel hier
-load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# load_dotenv()
+# client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client=st.secrets["OPENAI_API_KEY"]
 
 #################### Globale Variablen  ####################
 def initialize_session_state():
@@ -44,7 +45,7 @@ def extract_text_from_pdf(pdf_file):
     reader = PdfReader(pdf_file)
     page = reader.pages[0]
     return page.extract_text()
-
+ß
 
 def analyze_resume_with_gpt():
     """Analysiert den Lebenslauf mit GPT-4."""
