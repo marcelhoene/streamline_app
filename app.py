@@ -46,7 +46,7 @@ def extract_text_from_pdf(pdf_file):
     reader = PdfReader(pdf_file)
     page = reader.pages[0]
     return page.extract_text()
-ß
+
 
 def analyze_resume_with_gpt():
     """Analysiert den Lebenslauf mit GPT-4."""
