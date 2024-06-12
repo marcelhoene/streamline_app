@@ -1,5 +1,5 @@
 import streamlit as st
-import pymupdf  # PyMuPDF
+from pypdf import PdfReader
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
@@ -41,11 +41,10 @@ initialize_session_state()
 
 def extract_text_from_pdf(pdf_file):
     """Extrahiert Text aus einer PDF-Datei."""
-    doc = fitz.open(stream=pdf_file.read(), filetype="pdf")
-    text = ""
-    for page in doc:
-        text += page.get_text()
-    return text
+    reader = PdfReader(pdf_file)
+    page = reader.pages[0]
+    return page.extract_text()
+
 
 def analyze_resume_with_gpt():
     """Analysiert den Lebenslauf mit GPT-4."""
